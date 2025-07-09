@@ -10,6 +10,8 @@ const app = express();
 app.use(
   cors({
     origin: ["http://localhost:5173"],
+    methods: ["POST", "GET", "DELETE", "UPDATE"],
+    credentials: true,
   })
 );
 app.use(express.json());
