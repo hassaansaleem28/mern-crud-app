@@ -10,7 +10,7 @@ const app = express();
 app.use(
   cors({
     origin: ["http://localhost:5173"],
-    methods: ["POST", "GET", "DELETE", "UPDATE"],
+    methods: ["POST", "GET", "DELETE", "PUT"],
     credentials: true,
   })
 );
@@ -18,10 +18,23 @@ app.use(express.json());
 
 mongoose
   .connect(process.env.MONGODB_URL)
-  .then(() => console.log("MongoDB connected"))
+  .then(() => {
+    console.log("MongoDB connected");
+    console.log("Connected to DB:", mongoose.connection.name);
+    mongoose.connection.db
+      .listCollections()
+      .toArray()
+      .then(cols =>
+        console.log(
+          "Collections in DB:",
+          cols.map(c => c.name)
+        )
+      );
+  })
   .catch(err => console.error("Connection error:", err));
 
 app.get("/", async (req, res) => {
+  console.log("GET / triggered");
   try {
     const users = await UserModel.find({});
     res.json(users);

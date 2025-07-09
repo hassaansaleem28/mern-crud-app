@@ -11,7 +11,6 @@ function Home() {
     async function fetchData() {
       try {
         const data = await axios.get(BASE_URL);
-        console.log(data.data);
         setUsers(data.data);
       } catch (err) {
         console.error(err.message);
