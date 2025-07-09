@@ -9,7 +9,7 @@ const app = express();
 
 app.use(
   cors({
-    origin: ["http://localhost:5173"],
+    origin: ["https://mern-crud-app-sxwb.vercel.app/"],
     methods: ["POST", "GET", "DELETE", "PUT"],
     credentials: true,
   })

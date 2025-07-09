@@ -21,12 +21,13 @@ function CreateUser() {
   }
 
   return (
-    <div className="d-flex vh-100 bg-primary justify-content-center align-items-center">
-      <div className="w-50 bg-white rounded p-3">
+    <div className="container-fluid bg-primary min-vh-100 d-flex justify-content-center align-items-center">
+      <div className="bg-white rounded shadow p-4 w-100 w-md-75 w-lg-50">
         <form onSubmit={handleSubmit}>
-          <h2>Add User</h2>
-          <div className="mb-2">
-            <label htmlFor="">Name</label>
+          <h2 className="mb-4 text-center">Add User</h2>
+
+          <div className="mb-3">
+            <label className="form-label">Name</label>
             <input
               type="text"
               placeholder="Enter Name"
@@ -34,8 +35,9 @@ function CreateUser() {
               onChange={e => setName(e.target.value)}
             />
           </div>
-          <div className="mb-2">
-            <label htmlFor="">Email</label>
+
+          <div className="mb-3">
+            <label className="form-label">Email</label>
             <input
               type="email"
               placeholder="Enter Email"
@@ -43,8 +45,9 @@ function CreateUser() {
               onChange={e => setEmail(e.target.value)}
             />
           </div>
-          <div className="mb-2">
-            <label htmlFor="">Age</label>
+
+          <div className="mb-3">
+            <label className="form-label">Age</label>
             <input
               type="number"
               placeholder="Enter Age"
@@ -52,7 +55,8 @@ function CreateUser() {
               onChange={e => setAge(e.target.value)}
             />
           </div>
-          <button className="btn btn-success">Submit</button>
+
+          <button className="btn btn-success w-100">Submit</button>
         </form>
       </div>
     </div>
