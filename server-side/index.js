@@ -9,7 +9,7 @@ const app = express();
 
 app.use(
   cors({
-    origin: ["https://mern-crud-app-sxwb.vercel.app/"],
+    origin: ["https://mern-crud-app-sxwb.vercel.app"],
     methods: ["POST", "GET", "DELETE", "PUT"],
     credentials: true,
   })
