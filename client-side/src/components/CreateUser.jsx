@@ -2,6 +2,7 @@ import { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
+const BASE_URL = "https://mern-crud-app-smoky.vercel.app/";
 function CreateUser() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -11,7 +12,7 @@ function CreateUser() {
   function handleSubmit(e) {
     e.preventDefault();
     axios
-      .post("http://localhost:5000/createUser", { name, email, age })
+      .post(`${BASE_URL}createUser`, { name, email, age })
       .then(res => {
         console.log(res);
         navigate("/");

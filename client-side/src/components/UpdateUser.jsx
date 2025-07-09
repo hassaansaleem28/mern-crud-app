@@ -2,6 +2,8 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 
+const BASE_URL = "https://mern-crud-app-smoky.vercel.app/";
+
 function UpdateUser() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -13,9 +15,7 @@ function UpdateUser() {
     function () {
       async function fetchData() {
         try {
-          const { data } = await axios.get(
-            "http://localhost:5000/getUser/" + id
-          );
+          const { data } = await axios.get(`${BASE_URL}getUser/` + id);
           setName(data.name);
           setEmail(data.email);
           setAge(data.age);

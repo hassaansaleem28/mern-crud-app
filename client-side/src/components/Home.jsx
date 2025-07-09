@@ -2,13 +2,15 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
+const BASE_URL = "https://mern-crud-app-smoky.vercel.app";
+
 function Home() {
   const [users, setUsers] = useState([]);
 
   useEffect(function () {
     async function fetchData() {
       try {
-        const data = await axios.get("http://localhost:5000");
+        const data = await axios.get(BASE_URL);
         setUsers(data.data);
       } catch (err) {
         console.error(err.message);
@@ -19,7 +21,7 @@ function Home() {
 
   async function handleDelete(id) {
     try {
-      await axios.delete("http://localhost:5000/deleteUser/" + id);
+      await axios.delete(`${BASE_URL}deleteUser/` + id);
       window.location.reload();
     } catch (err) {
       console.error(err.message);
