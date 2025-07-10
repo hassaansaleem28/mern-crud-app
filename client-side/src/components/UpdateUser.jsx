@@ -31,18 +31,19 @@ function UpdateUser() {
   function handleSubmit(e) {
     e.preventDefault();
     axios
-      .put("http://localhost:5000/updateUser/" + id, { name, email, age })
+      .put(`${BASE_URL}updateUser/` + id, { name, email, age })
       .then(() => navigate("/"))
       .catch(err => console.error(err));
   }
 
   return (
-    <div className="d-flex vh-100 bg-primary justify-content-center align-items-center">
-      <div className="w-50 bg-white rounded p-3">
+    <div className="container-fluid bg-primary min-vh-100 d-flex justify-content-center align-items-center">
+      <div className="bg-white rounded shadow p-4 w-100 w-md-75 w-lg-50">
         <form onSubmit={handleSubmit}>
-          <h2>Update User</h2>
-          <div className="mb-2">
-            <label htmlFor="">Name</label>
+          <h2 className="mb-4 text-center">Update User</h2>
+
+          <div className="mb-3">
+            <label className="form-label">Name</label>
             <input
               type="text"
               value={name}
@@ -51,8 +52,9 @@ function UpdateUser() {
               onChange={e => setName(e.target.value)}
             />
           </div>
-          <div className="mb-2">
-            <label htmlFor="">Email</label>
+
+          <div className="mb-3">
+            <label className="form-label">Email</label>
             <input
               type="email"
               value={email}
@@ -61,8 +63,9 @@ function UpdateUser() {
               onChange={e => setEmail(e.target.value)}
             />
           </div>
-          <div className="mb-2">
-            <label htmlFor="">Age</label>
+
+          <div className="mb-3">
+            <label className="form-label">Age</label>
             <input
               type="number"
               value={age}
@@ -71,7 +74,8 @@ function UpdateUser() {
               onChange={e => setAge(e.target.value)}
             />
           </div>
-          <button className="btn btn-success">Update</button>
+
+          <button className="btn btn-success w-100">Update</button>
         </form>
       </div>
     </div>
